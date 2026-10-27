@@ -3,63 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Azure Test Website</title>
+    <title>Cloud Computing Practicum | Vercel Deployment</title>
+
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
+            min-height: 100vh;
+            margin: 0;
+            padding: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             font-family: Arial, sans-serif;
-            background: linear-gradient(to right, #0078D4, #00B4FF);
-            color: white;
             text-align: center;
-            padding-top: 100px;
+            color: white;
+            background: linear-gradient(135deg, #0078d4, #00b4ff);
         }
+
         .card {
-            background: rgba(255,255,255,0.1);
-            padding: 30px;
-            border-radius: 15px;
-            display: inline-block;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            width: min(100%, 520px);
+            padding: 40px 32px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.12);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
         }
+
         h1 {
-            margin-bottom: 10px;
+            margin: 0 0 16px;
+            font-size: clamp(1.8rem, 5vw, 2.4rem);
         }
+
         p {
-            font-size: 18px;
+            font-size: 1.1rem;
+            line-height: 1.6;
         }
-        .btn {
+
+        #time {
             margin-top: 20px;
-            padding: 10px 20px;
+            font-size: 0.95rem;
+        }
+
+        .btn {
+            margin-top: 16px;
+            padding: 12px 22px;
             border: none;
             border-radius: 8px;
+            color: #0078d4;
             background: white;
-            color: #0078D4;
-            cursor: pointer;
+            font-size: 1rem;
             font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
         }
+
         .btn:hover {
-            background: #f0f0f0;
+            background: #eaf6ff;
+            transform: translateY(-2px);
+        }
+
+        .btn:focus-visible {
+            outline: 3px solid #003e6b;
+            outline-offset: 3px;
         }
     </style>
 </head>
+
 <body>
-    <div class="card">
-        <h1>🚀 Azure Web Test</h1>
-        <p>Website ini berhasil berjalan di Microsoft Azure!</p>
-        <p id="time"></p>
-        <button class="btn" onclick="showMessage()">Klik Saya</button>
-    </div>
+    <main class="card">
+        <h1>☁️ Static Website Successfully Deployed</h1>
+
+        <p>
+            This website is deployed on Vercel and connected to GitHub.
+        </p>
+
+        <p id="time" aria-live="off"></p>
+
+        <button class="btn" type="button" onclick="showMessage()">
+            Click Me
+        </button>
+    </main>
 
     <script>
         function showMessage() {
-            alert("Halo! Website kamu sudah berhasil berjalan di Azure 🎉");
+            alert("I have made changes to this webpage for my Cloud Computing deployment!");
         }
 
         function updateTime() {
             const now = new Date();
-            document.getElementById("time").innerText = "Waktu sekarang: " + now.toLocaleString();
+            document.getElementById("time").textContent =
+                "Current time: " + now.toLocaleString("en-GB");
         }
 
-        setInterval(updateTime, 1000);
         updateTime();
+        setInterval(updateTime, 1000);
     </script>
 </body>
 </html>
